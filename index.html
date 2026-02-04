@@ -25,7 +25,7 @@
       padding: 3rem 2.5rem;
       border-radius: 26px;
       box-shadow: 0 35px 70px rgba(0,0,0,0.25);
-      max-width: 430px;
+      max-width: 440px;
       width: 90%;
       text-align: center;
       animation: pop 0.8s ease;
@@ -52,8 +52,9 @@
 
     .buttons {
       position: relative;
-      height: 90px;
-      margin-top: 10px;
+      width: 100%;
+      height: 160px; /* BIG area to escape */
+      margin-top: 20px;
     }
 
     button {
@@ -63,6 +64,7 @@
       border: none;
       cursor: pointer;
       transition: transform 0.15s ease, box-shadow 0.15s ease;
+      position: absolute;
     }
 
     button:hover {
@@ -73,14 +75,16 @@
     #yes {
       background: linear-gradient(135deg, #ff4d6d, #ff758f);
       color: white;
+      left: 40px;
+      top: 60px;
+      position: relative; /* YES stays fixed */
     }
 
     #no {
       background: #adb5bd;
       color: white;
-      position: absolute;
-      left: 230px;
-      top: 0;
+      left: 240px;
+      top: 60px;
     }
 
     .message {
@@ -157,25 +161,34 @@
     const yesBtn = document.getElementById("yes");
     const message = document.getElementById("message");
     const music = document.getElementById("music");
+    const container = document.querySelector(".buttons");
 
-    noBtn.addEventListener("mouseover", () => {
-      const x = Math.random() * 260;
-      const y = Math.random() * 60;
-      noBtn.style.left = x + "px";
-      noBtn.style.top = y + "px";
-    });
-
-    yesBtn.addEventListener("click", () => {
+    function acceptProposal() {
       message.style.display = "block";
       yesBtn.style.display = "none";
       noBtn.style.display = "none";
-
       music.play();
 
       for (let i = 0; i < 30; i++) {
         createHeart();
       }
+    }
+
+    // NO runs away properly
+    noBtn.addEventListener("mouseenter", () => {
+      const maxX = container.clientWidth - noBtn.offsetWidth;
+      const maxY = container.clientHeight - noBtn.offsetHeight;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
     });
+
+    // If NO somehow clicked → YES
+    noBtn.addEventListener("click", acceptProposal);
+    yesBtn.addEventListener("click", acceptProposal);
 
     function createHeart() {
       const heart = document.createElement("div");
