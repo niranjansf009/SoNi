@@ -1,209 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>For Sonia ❤️</title>
+<meta charset="UTF-8">
+<title>For Sonia ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* { box-sizing: border-box; }
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #ffdde1, #ee9ca7);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  overflow: hidden;
+  padding: 0 10px;
+}
 
-    body {
-      height: 100vh;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: radial-gradient(circle at top, #ffdde1, #ee9ca7);
-      font-family: "Segoe UI", system-ui, sans-serif;
-      overflow: hidden;
-    }
+.card {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 26px;
+  box-shadow: 0 35px 70px rgba(0,0,0,0.25);
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+  animation: pop 0.8s ease;
+  position: relative;
+  z-index: 2;
+}
 
-    .card {
-      background: white;
-      padding: 3rem 2.5rem;
-      border-radius: 26px;
-      box-shadow: 0 35px 70px rgba(0,0,0,0.25);
-      max-width: 440px;
-      width: 90%;
-      text-align: center;
-      animation: pop 0.8s ease;
-      position: relative;
-      z-index: 2;
-    }
+@keyframes pop { from {transform: scale(0.9); opacity:0;} to{transform: scale(1); opacity:1;} }
 
-    @keyframes pop {
-      from {
-        transform: scale(0.9);
-        opacity: 0;
-      }
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
+h1 { color:#333; line-height:1.4; margin-bottom:1.8rem; font-size:1.4rem; }
 
-    h1 {
-      color: #333;
-      line-height: 1.4;
-      margin-bottom: 1.8rem;
-    }
+.buttons {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  margin-top: 20px;
+}
 
-    .buttons {
-      position: relative;
-      width: 100%;
-      height: 160px; /* BIG area to escape */
-      margin-top: 20px;
-    }
+button {
+  padding: 16px 32px;
+  font-size: 18px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: absolute;
+  touch-action: manipulation;
+}
 
-    button {
-      padding: 14px 30px;
-      font-size: 18px;
-      border-radius: 16px;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-      position: absolute;
-    }
+button:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-    button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
+#yes { background: linear-gradient(135deg, #ff4d6d, #ff758f); color: white; left:40px; top:60px; position: relative; }
+#no { background: #adb5bd; color:white; left:240px; top:60px; }
 
-    #yes {
-      background: linear-gradient(135deg, #ff4d6d, #ff758f);
-      color: white;
-      left: 40px;
-      top: 60px;
-      position: relative; /* YES stays fixed */
-    }
+.message { display:none; margin-top:24px; font-size:22px; font-weight:bold; color:#ff4d6d; animation: fadeIn 1s ease forwards; }
+.signature { margin-top:16px; font-size:16px; color:#555; font-style:italic; }
 
-    #no {
-      background: #adb5bd;
-      color: white;
-      left: 240px;
-      top: 60px;
-    }
+@keyframes fadeIn { from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
 
-    .message {
-      display: none;
-      margin-top: 24px;
-      font-size: 22px;
-      font-weight: bold;
-      color: #ff4d6d;
-      animation: fadeIn 1s ease forwards;
-    }
+.heart { position:absolute; color:#ff4d6d; font-size:20px; animation:floatUp linear forwards; opacity:0.8; z-index:1; }
 
-    .signature {
-      margin-top: 16px;
-      font-size: 16px;
-      color: #555;
-      font-style: italic;
-    }
+@keyframes floatUp { from{transform:translateY(0); opacity:1;} to{transform:translateY(-100vh); opacity:0;} }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* floating hearts */
-    .heart {
-      position: absolute;
-      color: #ff4d6d;
-      font-size: 20px;
-      animation: floatUp linear forwards;
-      opacity: 0.8;
-      z-index: 1;
-    }
-
-    @keyframes floatUp {
-      from {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      to {
-        transform: translateY(-100vh);
-        opacity: 0;
-      }
-    }
-  </style>
+@media (max-width:480px) {
+  h1 { font-size:1.2rem; }
+  button { font-size:16px; padding:14px 28px; }
+  #yes { left:20px; top:50px; }
+  #no { left:180px; top:50px; }
+  .buttons { height:140px; }
+}
+</style>
 </head>
 <body>
 
-  <!-- Background Music -->
-  <audio id="music" loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-  </audio>
+<audio id="music" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
 
-  <div class="card">
-    <h1>
-      Sonia ❤️<br>
-      I love you so much<br>
-      Will you marry me? 💍
-    </h1>
+<div class="card">
+  <h1>
+    Sonia ❤️<br>
+    I love you so much<br>
+    Will you marry me? 💍
+  </h1>
 
-    <div class="buttons">
-      <button id="yes">Yes 💖</button>
-      <button id="no">No 🙈</button>
-    </div>
-
-    <div class="message" id="message">
-      Thank you, Sonia 😭💖<br>
-      You just made my life complete 💍✨
-      <div class="signature">— Forever yours, Niranjan</div>
-    </div>
+  <div class="buttons">
+    <button id="yes">Yes 💖</button>
+    <button id="no">No 🙈</button>
   </div>
 
-  <script>
-    const noBtn = document.getElementById("no");
-    const yesBtn = document.getElementById("yes");
-    const message = document.getElementById("message");
-    const music = document.getElementById("music");
-    const container = document.querySelector(".buttons");
+  <div class="message" id="message">
+    Thank you, Sonia 😭💖<br>
+    You just made my life complete 💍✨
+    <div class="signature">— Forever yours, Niranjan</div>
+  </div>
+</div>
 
-    function acceptProposal() {
-      message.style.display = "block";
-      yesBtn.style.display = "none";
-      noBtn.style.display = "none";
-      music.play();
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const message = document.getElementById("message");
+const music = document.getElementById("music");
+const container = document.querySelector(".buttons");
 
-      for (let i = 0; i < 30; i++) {
-        createHeart();
-      }
-    }
+let hoverCount = 0;
+const maxHovers = 10;
 
-    // NO runs away properly
-    noBtn.addEventListener("mouseenter", () => {
-      const maxX = container.clientWidth - noBtn.offsetWidth;
-      const maxY = container.clientHeight - noBtn.offsetHeight;
+function acceptProposal() {
+  message.style.display = "block";
+  yesBtn.style.display = "none";
+  noBtn.style.display = "none";
+  music.play();
+  for (let i=0;i<30;i++) createHeart();
+}
 
-      const x = Math.random() * maxX;
-      const y = Math.random() * maxY;
+function createHeart(){
+  const heart = document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="❤️";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.bottom="0px";
+  heart.style.animationDuration=(2+Math.random()*3)+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),5000);
+}
 
-      noBtn.style.left = x + "px";
-      noBtn.style.top = y + "px";
-    });
+// Move NO far from YES
+function moveNo() {
+  const maxX = container.clientWidth - noBtn.offsetWidth;
+  const maxY = container.clientHeight - noBtn.offsetHeight;
+  const yesRect = yesBtn.getBoundingClientRect();
+  const containerRect = container.getBoundingClientRect();
+  let x, y, distance;
 
-    // If NO somehow clicked → YES
-    noBtn.addEventListener("click", acceptProposal);
-    yesBtn.addEventListener("click", acceptProposal);
+  do {
+    x = Math.random() * maxX;
+    y = Math.random() * maxY;
+    const dx = (x + noBtn.offsetWidth/2 + containerRect.left) - (yesRect.left + yesRect.width/2);
+    const dy = (y + noBtn.offsetHeight/2 + containerRect.top) - (yesRect.top + yesRect.height/2);
+    distance = Math.sqrt(dx*dx + dy*dy);
+  } while (distance < 100);
 
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.innerHTML = "❤️";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.bottom = "0px";
-      heart.style.animationDuration = (2 + Math.random() * 3) + "s";
-      document.body.appendChild(heart);
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+}
 
-      setTimeout(() => {
-        heart.remove();
-      }, 5000);
-    }
-  </script>
+// Hover or touch → move NO
+function handleNoHover() {
+  hoverCount++;
+  moveNo();
+
+  // After 10 hovers → remove No button
+  if(hoverCount >= maxHovers){
+    noBtn.style.display = "none";
+  }
+}
+
+noBtn.addEventListener("mouseenter", handleNoHover);
+noBtn.addEventListener("touchstart", handleNoHover);
+
+// Disable NO click completely
+noBtn.addEventListener("click", e => e.preventDefault());
+
+// YES click → accept proposal
+yesBtn.addEventListener("click", acceptProposal);
+
+</script>
 
 </body>
 </html>
